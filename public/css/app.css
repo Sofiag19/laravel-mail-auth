@@ -3,9 +3,3 @@ header {
   text-align: center;
 }
 
-header .my_nav {
-  display: -webkit-box;
-  display: flex;
-  justify-content: space-around;
-}
-

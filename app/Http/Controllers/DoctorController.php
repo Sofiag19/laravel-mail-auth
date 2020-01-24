@@ -33,14 +33,22 @@ class DoctorController extends Controller
        return redirect()-> route('doc.index');
     }
 
-    public function edit($id)
+    public function editDoc($id)
     {
-        //
+        $doctor = Doctor::findOrFail($id);
+
+        //dd($doctor);
+        return view('pages.EditDoctor', compact('doctor'));
     }
 
-    public function update(Request $request, $id)
+    public function updateDoc(DoctorRequest $request, $id)
     {
-        //
+        //dd($id);
+        $validatedData = $request->validated();
+        $newDoc = Doctor::findOrFail($id);
+        //dd($newDoc);
+        $newDoc -> update($validatedData);
+        return redirect()->route('doc.index', compact('newDoc'));
     }
 
     public function destroy($id)
