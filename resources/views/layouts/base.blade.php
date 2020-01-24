@@ -12,7 +12,9 @@
 
   @include('components.header')
   @yield('doctorList')
-  @yield('doctor')
+  @yield('docPatients')
+  @yield('docCreate')
+  @yield('docEdit')
   @include('components.footer')
 
 </body>

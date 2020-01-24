@@ -10,5 +10,4 @@
 </div>
 @endforeach
 <br>
-<a href="">INSERT NEW MD</a>
 @endsection
