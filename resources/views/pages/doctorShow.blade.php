@@ -1,6 +1,7 @@
 @extends('layouts.base')
 
 @section('doctor')
+<a href=" {{ route('doc.index') }} ">HOME</a>
 <div>
   <h1> {{ $doctor -> Name}} {{ $doctor -> Lastname }} MD</h1>
   <p> SPECIALIZATION: {{ $doctor -> Specialization }} </p>
@@ -10,14 +11,13 @@
 
 <h2>PATIENTS OF {{ $doctor -> Name}} {{ $doctor -> Lastname }} MD</h2>
 
-@foreach($doctor -> patients as $patient)
-<div>
-  <h3>NOME E COGNOME PAZIENTE {{ $patient -> Name}} {{ $patient -> Lastname }}</h3>
-  <p>MALATTIA</p>
-  <p>DATA DI NASCITA</p>
-  <p>CONTATTI --> MAIL</p>
-
-</div>
+@foreach ($doctor -> patients as $patient)
+<p> {{ $patient -> Name }} {{ $patient -> Lastname }}</p>
+<p>DISEASE: {{ $patient -> Disease }}</p>
+<P>DATE OF BIRTH: {{ $patient -> DayOfBirth }}</P>
+<p>CONTACT: {{ $patient -> Mail }}</p>
+<br>
 @endforeach
+
 
 @endsection
