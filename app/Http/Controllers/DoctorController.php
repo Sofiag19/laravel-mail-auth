@@ -51,8 +51,11 @@ class DoctorController extends Controller
         return redirect()->route('doc.index', compact('newDoc'));
     }
 
-    public function destroy($id)
+    public function destroyDoctor($id)
     {
-        //
+        $doctor = Doctor::findOrFail($id);
+        $doctor -> patients() -> delete();
+        $doctor -> delete();
+        return redirect()-> route('doc.index');
     }
 }

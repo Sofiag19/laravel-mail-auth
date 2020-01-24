@@ -11,3 +11,4 @@ Route::get('/edit/{id}', 'DoctorController@editDoc')->name('doc.edit');
 Route::post('/update/{id}', 'DoctorController@updateDoc')->name('doc.update');
 
 
+Route::get('/destroy/{id}', 'DoctorController@destroyDoctor')->name('doc.delete');
