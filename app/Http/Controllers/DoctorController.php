@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Doctor;
 use App\Http\Requests\DoctorRequest;
+use App\Doctor;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DBActionDelete;
 
 class DoctorController extends Controller
 {
@@ -56,6 +58,10 @@ class DoctorController extends Controller
         $doctor = Doctor::findOrFail($id);
         $doctor -> patients() -> delete();
         $doctor -> delete();
+        Mail::to("mail@mail.com")->send(new DBActionDelete(
+            $doctor -> Name,
+            $doctor -> Lastname
+        ));
         return redirect()-> route('doc.index');
     }
 }

@@ -1,0 +1,1 @@
+{{ $name }} {{ $lastname }} MD was delete
