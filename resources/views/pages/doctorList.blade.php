@@ -1,7 +1,8 @@
 @extends('layouts.base')
 
 @section('doctorList')
-
+<div><a href="{{ route('doc.create') }}">ADD NEW MD</a></div>
+<br> <br>
 @foreach($doctors as $doctor)
 <div>
   <h3>{{ $doctor -> Name }} {{ $doctor -> Lastname }} MD</h3>
